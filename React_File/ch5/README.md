@@ -1,70 +1,139 @@
-# Getting Started with Create React App
+# React Ch5
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## JSX의 제한 사항 해결법
 
-## Available Scripts
+### div 태그로 감싸기
 
-In the project directory, you can run:
+```
+const 함수 = () => {
+  return (
+    <div>
+      <h2>...</h2>
+      <p>...</p>
+    </div>
+  );
+};
+```
 
-### `npm start`
+### <> 태그로 감싸기
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+```
+const 함수 = () => {
+  return (
+    <>
+      <h2>...</h2>
+      <p>...</p>
+    </>
+  );
+};
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### <Fragment> or <React.Fragment> 태그로 감싸기
 
-### `npm test`
+```
+import React, { Fragment } from 'react';
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+const 함수 = () => {
+  return (
+    <Fragment>
+      <h2>...</h2>
+      <p>...</p>
+    </Fragment>
+  );
+};
+```
 
-### `npm run build`
+### Wrapper.jsx components 활용
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
+function Wrapper(props) {
+  return props.children
+}
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+export default Wrapper
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## React Portals
 
-### `npm run eject`
+### public 폴더에 있는 index.html에서 root추가
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+  ...
+  </head>
+  <body>
+    ...
+    <div id="루트A"></div>
+    <div id="루트B"></div>
+    <div id="root"></div>
+    ...
+  </body>
+</html>
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### React DOM을 사용해서 Portals 사용
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```
+import React from 'react'
+import ReactDOM from 'react-dom'
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+const 함수A = (props) => {
+  return <div onClick={props.상속A}>...</div>
+}
 
-## Learn More
+const 함수B = (props) => {
+  return <div onClick={props.상속B}>...</div>
+}
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+const 메인함수 = () => {
+  const 이벤트A = () => {
+    ...
+  }
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+  const 이벤트B = () => {
+    ...
+  }
 
-### Code Splitting
+  return (
+    <div>
+      {ReactDOM.createPortal(
+        <함수A 상속A={이벤트A}/>,
+        document.getElementById('루트A')
+      )}
+      {ReactDOM.createPortal(
+        <함수B 상속B={이벤트B}/>,
+        document.getElementById('루트B')
+      )}
+    </div>
+  )
+}
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## useRef 사용 예시
 
-### Analyzing the Bundle Size
+### input의 value값을 console로 불러오는 코드
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```
+import React, { useRef } from "react";
 
-### Making a Progressive Web App
+function 함수() {
+  const textInputRef = useRef()
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+  const 이벤트 = () => {
+    console.log(textInputRef.current.value)
+  }
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+  return (
+    <div>
+      <form onSubmit={이벤트}>
+        ...
+        <input id="todo" type="text" ref={textInputRef}/>
+        <button type="submit">Add</button>
+        ...
+      </form>
+    </div>
+  );
+}
+```
