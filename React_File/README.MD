@@ -8,3 +8,4 @@
 | ch4  | 리액트 컴포넌트 스타일링                          |
 | ch5  | 프래그먼트 작업, Portals & "Refs"                 |
 | ch6  | Reducer를 사용하여 부작용 처리 & Context API 사용 |
+| ch7  | 리액트와 최적화 테크닉 살펴보기                   |
