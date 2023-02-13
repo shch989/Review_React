@@ -8,27 +8,29 @@ $ npm install --save axios
 
 ## React에서 GET요청 보내기(with fetch)
 
-### https://백엔드_API_주소/semi
+### https://백엔드*API*주소/semi
 
 ```
 {
-  users: [
+  "users": [
     {
-      id: 1,
-      email: "java@gmail.com",
-      name: "semi",
-      age: 24
+      "id": 1,
+      "email": "java@gmail.com",
+      "name": "semi",
+      "age": 24
     },
     {
-      id: 25,
-      email: "python@gmail.com",
-      name: "semi",
-      age: 17
+      "id": 25,
+      "email": "python@gmail.com",
+      "name": "semi",
+      "age": 17
     }
   ]
 }
 ```
+
 ### fetch를 사용하여 GET요청
+
 ```
 import React, { useState } from 'react'
 
@@ -63,7 +65,9 @@ function 부모() {
   )
 }
 ```
+
 ### 요청에 대한 JSON값 출력
+
 ```
 function 자식(props) {
   ...
