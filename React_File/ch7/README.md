@@ -26,6 +26,53 @@ React.memo를 모든 컴포넌트에 적용시키지 않는 이유는<br/>
 이전 props와 비교하는 과정에서 리액트가 처리하는 작업이 늘어나기 때문<br/>
 따라서 자식 컴포넌트가 해당 컴포넌트 안에 많을 경우 사용 권장<br/>
 
+### useMemo Hook 사용
+
+부모 컨포넌트에서 상속받은 숫자 배열을 자식 컨포넌트에서<br/>
+정렬하고 리스트를 출력하는 예제이다. 자식 컨포넌트에서 코드가 재실행 하는 것을<br/>
+방지하기 위해 useMemo를 사용하여 상속받은 배열에 변동이 있을 때만<br/>
+코드가 재실행 되도록 선언한다.
+
+```
+import React, { useMemo } from 'react'
+
+import 자식 from '상대경로/자식'
+
+function 부모() {
+  ...
+  const 변수A = useMemo(() => [5, 3, 1, 10, 9], [])
+  ...
+  return (
+    ...
+    <자식 items={변수A}/>
+    ...
+  )
+}
+export default 부모
+```
+
+```
+import React, { useMemo } from 'react'
+
+function 자식(props) {
+  ...
+  const 변수B = useMemo(() => {
+    return props.items.sort((a, b) => a - b)
+  }, [props.items])
+  ...
+  return (
+    ...
+    <ul>
+      {변수B.map((item) => {
+        <li key={item}>{item}</li>
+      })}
+    </ul>
+    ...
+  )
+}
+export default 자식
+```
+
 ## useCallback Hook을 사용하여 함수 재생성 방지
 
 ### useCallback을 사용하는 이유와 사용법
@@ -53,3 +100,6 @@ function 부모() {
 }
 export default 함수
 ```
+
+useCallback에서 의존성[]에는 내용이 재실행 되더라도<br/>
+보존되어 있어야하는 값을 넣는다.
