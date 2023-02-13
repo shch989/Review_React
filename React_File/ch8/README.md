@@ -11,20 +11,22 @@ $ npm install --save axios
 ### https://백엔드_API_주소/semi
 
 ```
-[
-  {
-    id: 1,
-    email: "java@gmail.com",
-    name: "semi",
-    age: 24
-  },
-  {
-    id: 25,
-    email: "python@gmail.com",
-    name: "semi",
-    age: 17
-  }
-]
+{
+  users: [
+    {
+      id: 1,
+      email: "java@gmail.com",
+      name: "semi",
+      age: 24
+    },
+    {
+      id: 25,
+      email: "python@gmail.com",
+      name: "semi",
+      age: 17
+    }
+  ]
+}
 ```
 ### fetch를 사용하여 GET요청
 ```
@@ -41,12 +43,12 @@ function 부모() {
         return response.json()
       })
       .then((data) => {
-        const 유저목록 = data.results.map((movieData) => {
+        const 유저목록 = data.users.map((user) => {
         return {
-          id: data.id,
-          email: data.email
-          name: data.name,
-          age: data.age,
+          id: user.id,
+          email: user.email
+          name: user.name,
+          age: user.age,
         }
       })
       setUsers(유저목록)
@@ -56,7 +58,7 @@ function 부모() {
   return (
     <React.Fragment>
       <자식 users={users} />
-      <button onClick={함수}>Find User</button>
+      <button onClick={함수}>Find Users</button>
     </React.Fragment>
   )
 }
