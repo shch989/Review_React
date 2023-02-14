@@ -10,3 +10,4 @@
 | ch6  | Reducer를 사용하여 부작용 처리 & Context API 사용     |
 | ch7  | 리액트와 최적화 테크닉 살펴보기 useMemo & useCallback |
 | ch8  | HTTP 요청 보내기(예: 데이터베이스 연결)               |
+| ch9  | 커스텀 리액트 Hook 빌드                               |
