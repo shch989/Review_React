@@ -12,3 +12,6 @@
 | ch8  | HTTP 요청 보내기(예: 데이터베이스 연결)               |
 | ch9  | 커스텀 리액트 Hook 빌드                               |
 | ch10 | Context API의 대안 Redux(Redux Toolkit)               |
+| ch11 | 리액트 라우터가 있는 SPA 다중 페이지 구축하기 <예정>  |
+| ch12 | 리액트 앱 테스트(단위 테스트) <예정>                  |
+| ch13 | 리액트 + TypeScript <예정>                            |
