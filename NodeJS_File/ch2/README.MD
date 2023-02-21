@@ -66,6 +66,8 @@ $ npm install --save express-handlebars
 ```
 const app = express();
 ...
+const expressHbs = require('express-handlebars');
+...
 app.engine(
   'hbs',
   expressHbs({
@@ -94,4 +96,26 @@ router.get('/', (req, res, next) => {
 
 ```
 $ npm install --save ejs
+```
+
+### EJS 환경 세팅
+
+```
+const app = express();
+...
+app.set('view engine', 'ejs');
+app.set('views', 'views');
+...
+app.listen(port, () => {
+    console.log(`Example app listening at http://localhost:${port}/`)
+  })
+```
+
+### EJS Templating File 불러오기
+
+```
+router.get('/', (req, res, next) => {
+  ...
+  res.render('main.ejs')
+});
 ```
