@@ -1,4 +1,5 @@
 const path = require('path')
+require('dotenv').config()
 
 const express = require('express')
 const bodyParser = require('body-parser')
@@ -51,9 +52,7 @@ app.use((error, req, res, next) => {
 })
 
 mongoose
-  .connect(
-    'mongodb+srv://semi2790:981104shch98@cluster0.72cuoyy.mongodb.net/messages'
-  )
+  .connect(process.env.MONGODB_URI)
   .then((result) => {
     app.listen(port, () => {
       console.log(`Example app listening at http://localhost:${port}/`)
