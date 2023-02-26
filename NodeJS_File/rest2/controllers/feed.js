@@ -11,10 +11,24 @@ const clearImage = (filePath) => {
   fs.unlink(filePath, (err) => console.log(err))
 }
 
+// 모든 게시물 페이지화 (?page=1)
 exports.getPosts = (req, res, next) => {
+  const currentPage = req.query.page || 1
+  // 한 페이지에 불러올 게시글 갯수
+  const perPage = 2
+  let totalItems
   Post.find()
+    .countDocuments()
+    .then((count) => {
+      totalItems = count
+      return Post.find()
+        .skip((currentPage - 1) * perPage)
+        .limit(perPage)
+    })
     .then((posts) => {
-      res.status(200).json({ message: 'Fetched posts successfully.', posts })
+      res
+        .status(200)
+        .json({ message: 'Fetched posts successfully.', posts, totalItems })
     })
     .catch((err) => {
       if (!err.statusCode) {
