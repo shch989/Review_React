@@ -1,11 +1,32 @@
 # 자료 설명
-### 해당 자료는 지금까지 배운 MERN 스택의 핵심인 React와 NodeJS의 기술을 복습하는 자료입니다.
+### 해당 자료는 지금까지 배운 MERN 스택의 핵심인 React의 기술을 복습하는 자료입니다.
 ### 파일 마다 제공하는 내용은 아래와 같으니 참고해주시길 바랍니다.
 <br/>
 <br/>
 
+# React 목차
+
+| 목차 | 내용                                                  |
+| ---- | ----------------------------------------------------- |
+| ch1  | 리액트 기초 및 실습 컴포넌트                          |
+| ch2  | 리액트 State 및 이벤트 다루기기                       |
+| ch3  | 렌더링 리스트 및 조건부 Content                       |
+| ch4  | 리액트 컴포넌트 스타일링                              |
+| ch5  | 프래그먼트 작업, Portals & "Refs"                     |
+| ch6  | Reducer를 사용하여 부작용 처리 & Context API 사용     |
+| ch7  | 리액트와 최적화 테크닉 살펴보기 useMemo & useCallback |
+| ch8  | HTTP 요청 보내기(예: 데이터베이스 연결)               |
+| ch9  | 커스텀 리액트 Hook 빌드                               |
+| ch10 | Context API의 대안 Redux(Redux Toolkit)               |
+| ch11 | 리액트 라우터가 있는 SPA 다중 페이지 구축하기 <예정>  |
+| ch12 | 리액트 앱 테스트(단위 테스트) <예정>                  |
+| ch13 | 리액트 + TypeScript <예정>                            |
+
+<br/>
+<br/>
+
 # React_File
-## React(v18) 커리큘럼
+## React(v18+) 커리큘럼
 ### - React 기초 문법 및 심화 문법
 
 ### - UI 컴포넌트 설계 및 구축 방법
@@ -43,66 +64,5 @@
 
 ## React 과정 수료증
 <img src="./img/udemy_react.jpg">
-<br/>
-<br/>
-
-# NodeJS_File
-## NodeJS(v16) 커리큘럼
-
-### - Node.js의 기본 개념과 코어 모듈
-
-### - 요청 분석 및 응답 전송
-
-### - 서버에서의 동적 HTML 렌더링
-
-### - Express.js 활용
-
-### - 서버에서 파일 작업 및 PDF 즉시 생성
-
-### - 파일 업로드 및 다운로드
-
-### - 모델-뷰-컨트롤러 (MVC) 패턴 사용하기
-
-### - Node.js에 SQL (MySQL) 및 Sequelize 사용하기
-
-### - Node.js에 NoSQL (MongoDB) 및 Mongoose 사용하기
-
-### - 세션 및 쿠키 작업
-
-### - 사용자 인증 및 권한 부여
-
-### - 이메일 전송
-
-### - 사용자 입력값 유효성 검사
-
-### - 데이터 페이지화(Pagination)
-
-### - Stripe.js로 결제 다루기
-
-### - REST API 구축
-
-### - REST API 내 인증 구현
-
-### - REST API 내 파일 업로드
-
-### - GraphQL API 구축
-
-### - GraphQL API 내 인증 구현
-
-### - GraphQL API 내 파일 업로드
-
-### - Websocket을 통해 실시간 Node.js 앱 구축하기
-
-### - 테스트 자동화 (유닛 테스트)
-
-### - Node.js 애플리케이션 배포
-
-### - Node.js with TypeScript
-
-### - Deno.js 탐구하기
-<br/>
-
-## NodeJS 과정 수료증
-<img src="./img/udemy_node.jpg">
 <br/>
 <br/>
